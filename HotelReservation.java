@@ -3,9 +3,9 @@ import java.util.*;
 
 // ---------------- ROOM CLASS ----------------
 class Room {
-    private int roomNumber;
-    private String category;
-    private double price;
+    private final int roomNumber;
+    private final String category;
+    private final double price;
     private boolean available;
 
     public Room(int roomNumber, String category, double price) {
@@ -48,12 +48,12 @@ class Room {
 
 // ---------------- BOOKING CLASS ----------------
 class Booking {
-    private int bookingId;
-    private String customerName;
-    private String phoneNumber;
-    private int roomNumber;
-    private String category;
-    private double amount;
+    private final int bookingId;
+    private final String customerName;
+    private final String phoneNumber;
+    private final int roomNumber;
+    private final String category;
+    private final double amount;
 
     public Booking(int bookingId, String customerName,
                    String phoneNumber, int roomNumber,
@@ -129,10 +129,10 @@ public class HotelReservation {
 
     private static final String FILE_NAME = "bookings.txt";
 
-    private static ArrayList<Room> rooms = new ArrayList<>();
-    private static ArrayList<Booking> bookings = new ArrayList<>();
+    private static final ArrayList<Room> rooms = new ArrayList<>();
+    private static final ArrayList<Booking> bookings = new ArrayList<>();
 
-    private static Scanner sc = new Scanner(System.in);
+    private static final Scanner sc = new Scanner(System.in);
 
     private static int nextBookingId = 1001;
 
@@ -337,7 +337,7 @@ public class HotelReservation {
 
 
     // Save booking to file
-    public static void saveBookingToFile(Booking booking) {
+    static void saveBookingToFile(Booking booking) {
 
         try (FileWriter writer =
                      new FileWriter(FILE_NAME, true)) {
@@ -495,6 +495,6 @@ public class HotelReservation {
 
         } while (choice != 6);
 
-        sc.close();
+        //sc.close();
     }
 }
